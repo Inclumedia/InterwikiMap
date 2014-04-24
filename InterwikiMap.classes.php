@@ -370,6 +370,7 @@ class InterwikiMap {
 	// Update the wiki page whose history contains old (and current) versions of the
 	// interwiki table
 	public static function updateBackupPage ( $summary ) {
+		wfRunHooks( 'InterwikiMapUpdateBackupPage', array( &$summary ) );
 		global $wgInterwikiMapBackupPage, $wgInterwikiMapBackupText,
 			$wgInterwikiMapBackupUser, $wgInterwikiMapBackupDescPage;
 		if ( !$wgInterwikiMapBackupText ) {
